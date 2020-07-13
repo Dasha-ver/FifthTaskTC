@@ -8,6 +8,8 @@ public class Main {
         Oven oven = new Oven();
         oven.searchByCapacity("33");
         SearchProduct searchProduct = new SearchProduct(oven);
-        SearchProduct.printListWithResult(searchProduct.getListWithResult());
+        SearchProduct.printListWithResult(searchProduct.receiveListWithResult());
+        System.out.println(oven.toString());
+
     }
 }

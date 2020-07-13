@@ -1,5 +1,7 @@
 package by.epamtc.mtv.fifthtask.viaryshko;
 
+import java.util.Objects;
+
 public class Line {
 
     private String productForSearch;
@@ -10,7 +12,7 @@ public class Line {
         this.productForSearch = productForSearch;
     }
 
-    public int[] getNumbersOfLine() {
+    public int[] receiveNumbersOfLine() {
 
         switch (productForSearch) {
 
@@ -40,5 +42,37 @@ public class Line {
         }
         return numbersOfLine;
     }
+
+    public String getProductForSearch(){
+         return productForSearch;
+    }
+
+    public int[] getNumbersOfLine(){
+        return numbersOfLine;
+    }
+
+    public boolean equals(Object o){
+
+        if(this == o){
+            return true;
+        }
+        if(!(o instanceof Line)){
+            return false;
+        }
+
+        Line line = (Line) o;
+        return Objects.equals(getNumbersOfLine(), line.getNumbersOfLine())&&
+                Objects.equals(getProductForSearch(), line.getProductForSearch());
+    }
+     public int hashCode(){
+         return Objects.hash(getNumbersOfLine(), getProductForSearch());
+     }
+
+     public String toString(){
+        return "Line{"+" " +
+                "NumbersOfLine = " + numbersOfLine.toString() + " " +
+                "ProductForSearch = " + productForSearch + ".";
+
+     }
 
 }

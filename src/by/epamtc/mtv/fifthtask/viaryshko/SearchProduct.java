@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SearchProduct {
 
@@ -60,11 +61,18 @@ public class SearchProduct {
 
     }
 
-    public List<String> getListWithResult() throws IOException {
+    public static void printListWithResult(List<String> listForPrint) {
 
-        int[] numbersOfLine = line.getNumbersOfLine();
+        for (String result : listForPrint) {
+            System.out.println(result);
+        }
+    }
+
+    public List<String> receiveListWithResult() throws IOException {
+
+        int[] numbersOfLine = line.receiveNumbersOfLine();
         listWithResult = new ArrayList<String>();
-        FileReader fr = new FileReader("List.txt");
+        FileReader fr = new FileReader("resources//List.txt");
         BufferedReader br = new BufferedReader(fr);
         String lineForRead = "";
         int lineCounter = 0;
@@ -81,10 +89,49 @@ public class SearchProduct {
 
     }
 
-    public static void printListWithResult(List<String> listForPrint) {
+    public String getProperty(){
+         return property;
+    }
 
-        for (String result : listForPrint) {
-            System.out.println(result);
+    public String getValue(){
+        return value;
+    }
+
+    public Line getLine(){
+        return line;
+    }
+
+    public List<String> getListWithResult(){
+        return listWithResult;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
+        if (!(o instanceof SearchProduct)) {
+            return false;
+        }
+        SearchProduct searchProduct = (SearchProduct) o;
+        return Objects.equals(getProperty(), searchProduct.getProperty()) &&
+                Objects.equals(getValue(), searchProduct.getValue()) &&
+                Objects.equals(getLine(), searchProduct.getLine()) &&
+                Objects.equals(getListWithResult(), searchProduct.getListWithResult());
+
+    }
+
+    public int hashCode() {
+
+        return Objects.hash(getProperty(), getValue(), getLine(), getListWithResult());
+    }
+
+    public String toString() {
+
+        return "SearchProduct {" + " " +
+                "Property = " + property + " " +
+                "Value = " + value + " " +
+                "Line = " + line + " " +
+                "ListWithResult " + listWithResult.toString() + ".";
+
     }
 }

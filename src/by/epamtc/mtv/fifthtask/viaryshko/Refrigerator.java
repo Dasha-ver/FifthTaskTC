@@ -59,4 +59,32 @@ public class Refrigerator {
     public String getValue() {
         return value;
     }
+
+    public String getPOWER_CONSUMPTION() {
+        return POWER_CONSUMPTION;
+    }
+
+    public String getWEIGHT() {
+        return WEIGHT;
+    }
+
+    public String getFREEZER_CAPACITY() {
+        return FREEZER_CAPACITY;
+    }
+
+    public String getOVERALL_CAPACITY() {
+        return OVERALL_CAPACITY;
+    }
+
+    public String getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public String getWIDTH() {
+        return WIDTH;
+    }
+
+    public String getNAME() {
+        return NAME;
+    }
 }
